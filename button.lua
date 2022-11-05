@@ -19,6 +19,7 @@ end
 
 function Button:draw ()
   love.graphics.draw(self.image, self.x, self.y)
+  love.graphics.print(self.text, self.x + 128, self.y)
 end
 
 function Button:checkButton ()
@@ -29,9 +30,6 @@ function Button:checkButton ()
       return true
     end
     return false
-end
-
-function Button:func ()
 end
 
 function Button:mousepressed (x, y, button, isTouch)
