@@ -31,8 +31,16 @@ function Button:checkButton ()
     return false
 end
 
+function Button:func ()
+end
+
 function Button:mousepressed (x, y, button, isTouch)
   if self:checkButton() then
-    print(self.text)
+    if self.text == "Play" then
+      Gamestate.switch(levelOne)
+    elseif self.text == "Quit" then
+      love.event.quit(exitstatus)
+    else
+    end
   end
 end
