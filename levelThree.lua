@@ -1,9 +1,9 @@
-levelOne = {}
-buttons_level1 = {}
+levelThree = {}
+buttons_level3 = {}
 require "tile"
 require "train"
 
-function levelOne:init ()
+function levelThree:init ()
   x = 64
   y = 64
   gridw = 64
@@ -12,7 +12,7 @@ function levelOne:init ()
   mousey = 0
   mouse_floor_x = 0
   mouse_floor_y = 0
-  track_limit = 13
+  track_limit = 21
   success = false
   freeze = false
   bg = love.graphics.newImage("images/bg.png")
@@ -25,24 +25,22 @@ function levelOne:init ()
           table.insert(object_tracker[i + 1], empty_tile)
       end
   end
-  local start_tile = Tile(2 * x, 5 * y, "start", "images/TrainStation3.png")
-  object_tracker[3][6] = start_tile
-  local end_tile = Tile(12 * x, 1 * y, "end", "images/TrainStation3.png")
-  object_tracker[13][2] = end_tile
-  end_position = {12, 1}
-  table.insert(current_tile_stack, {2, 5})
-  local mountain_tile = Tile(6 * x, 3 * y, "mountain", "images/mountain_tile.png")
-  object_tracker[7][4] = mountain_tile
-  local mountain_tile = Tile(1 * x, 8 * y, "mountain", "images/mountain_tile.png")
-  object_tracker[2][9] = mountain_tile
-  local mountain_tile = Tile(6 * x, 4 * y, "mountain", "images/mountain_tile.png")
-  object_tracker[7][5] = mountain_tile
-
-  next_button = Button(ww/2 - button:getWidth()/2 + 16, 400, "Level 2")
-  table.insert(buttons_level1, next_button)
+  local start_tile = Tile(6 * x, 7 * y, "start", "images/TrainStation3.png")
+  object_tracker[7][8] = start_tile
+  local end_tile = Tile(13 * x, 6 * y, "end", "images/TrainStation3.png")
+  object_tracker[14][7] = end_tile
+  end_position = {13, 6}
+  table.insert(current_tile_stack, {6, 7})
+  mountain_list = {{8, 8}, {8, 7}, {8, 6}, {8, 5}, {8, 4}, {7, 3}, {7, 6}, {7, 5}, {9, 7}, {9, 6}, {6, 3}, {6, 4}, {4, 3}, {4, 2}, {5, 1}, {6, 1}, {7, 1}, {8, 1}, {9, 2}, {10, 1}, {9, 5}, {11, 4}, {12, 4}, {12, 3}, {11, 5}, {11, 6}, {11, 7}, {13, 5}, {12, 6}}
+  for i, coordinate in ipairs(mountain_list) do
+    local mountain_tile = Tile(coordinate[1] * x, coordinate[2] * y, "mountain", "images/mountain_tile.png")
+    object_tracker[coordinate[1] + 1][coordinate[2] + 1] = mountain_tile
+  end
+  next_button = Button(ww/2 - button:getWidth()/2 + 16, 400, "Level 4")
+  table.insert(buttons_level3, next_button)
 end
 
-function levelOne:update (dt)
+function levelThree:update (dt)
   mousex, mousey = love.mouse.getPosition()
   mouse_floor_x = math.floor(mousex / 64)
   mouse_floor_y = math.floor(mousey / 64)
@@ -112,22 +110,20 @@ function levelOne:update (dt)
   end
   if success then
       train:update(dt)
-      for i, button in ipairs(buttons_level1) do
+      for i, button in ipairs(buttons_level3) do
         button:update(dt)
       end
   end
 end
 
-function levelOne:draw ()
+function levelThree:draw ()
   love.graphics.draw(bg, 0, 0)
   for i, column in ipairs(object_tracker) do
       for j, tile in ipairs(column) do
           tile:draw()
       end
   end
-  love.graphics.setFont(font4)
-  love.graphics.print("Number of tracks left: " .. track_limit, 15, 15)
-  love.graphics.setFont(font1)
+  love.graphics.print("Number of tracks left: " .. track_limit, 0, 0)
   if success then
       train:draw()
       love.graphics.setColor(0,0,0,0.7)
@@ -136,15 +132,15 @@ function levelOne:draw ()
       love.graphics.setFont(font2)
       love.graphics.print("Good job!", love.graphics.getWidth()/4 +64, love.graphics.getHeight()/2 - 64)
       love.graphics.setFont(font1)
-      for i, button in ipairs(buttons_level1) do
+      for i, button in ipairs(buttons_level3) do
         button:draw()
       end
   end
 end
 
-function levelOne:mousepressed(x, y, button, isTouch)
+function levelThree:mousepressed(x, y, button, isTouch)
   if success then
-    for i, button in ipairs(buttons_level1) do
+    for i, button in ipairs(buttons_level3) do
       button:mousepressed(x, y, button, isTouch)
     end
   end
