@@ -20,7 +20,11 @@ end
 function Button:draw ()
   love.graphics.draw(self.image, self.x, self.y)
   love.graphics.setFont(font3)
-  love.graphics.print(self.text, self.x + 82, self.y)
+  if self.text == "Play" or self.text == "Quit" then
+    love.graphics.print(self.text, self.x + 82, self.y)
+  else
+    love.graphics.print(self.text, self.x + 48, self.y + 4)
+  end
   love.graphics.setFont(font1)
 end
 
@@ -40,7 +44,13 @@ function Button:mousepressed (x, y, button, isTouch)
       Gamestate.switch(levelOne)
     elseif self.text == "Quit" then
       love.event.quit(exitstatus)
-    elseif self.text == "Next" then
+    elseif self.text == "Level 2" then
+      Gamestate.switch(levelTwo)
+    elseif self.text == "Level 3" then
+      Gamestate.switch(levelThree)
+    elseif self.text == "Level 4" then
+      Gamestate.switch(levelFour)
+    elseif self.text == "Credits" then
       Gamestate.switch(credits)
     else
     end
