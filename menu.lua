@@ -52,7 +52,7 @@ function menu:update(dt)
   for i, button in ipairs(buttons) do
     button:update(dt)
   end
-  
+
   if love.keyboard.isDown('return') then
     Gamestate.switch(levelOne)
   end
