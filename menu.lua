@@ -10,11 +10,7 @@ cloudTable.x3 = 0
 function menu:init()
   ww = love.graphics.getWidth()
   wh = love.graphics.getHeight()
-  button = love.graphics.newImage('images/button1.png')
-  bg = love.graphics.newImage('images/bg.png')
-  cloud1 = love.graphics.newImage('images/clouds2.png')
-  cloud2 = love.graphics.newImage('images/clouds2.png')
-  logo = love.graphics.newImage('images/logo.png')
+
   button_1 = Button(ww/2 - button:getWidth()/2, 300, "Play")
   table.insert(buttons, button_1)
   button_2 = Button(ww/2 - button:getWidth()/2, 400, "Quit")
@@ -56,6 +52,7 @@ function menu:update(dt)
   for i, button in ipairs(buttons) do
     button:update(dt)
   end
+  
   if love.keyboard.isDown('return') then
     Gamestate.switch(levelOne)
   end
