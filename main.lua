@@ -19,5 +19,5 @@ require 'credits'
 
 function love.load()
     Gamestate.registerEvents()
-    Gamestate.switch(credits)
+    Gamestate.switch(menu)
 end
