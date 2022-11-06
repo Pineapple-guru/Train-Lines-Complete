@@ -40,6 +40,8 @@ function Button:mousepressed (x, y, button, isTouch)
       Gamestate.switch(levelOne)
     elseif self.text == "Quit" then
       love.event.quit(exitstatus)
+    elseif self.text == "Next" then
+      Gamestate.switch(credits)
     else
     end
   end
