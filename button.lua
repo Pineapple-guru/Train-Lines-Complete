@@ -19,7 +19,9 @@ end
 
 function Button:draw ()
   love.graphics.draw(self.image, self.x, self.y)
-  love.graphics.print(self.text, self.x + 128, self.y)
+  love.graphics.setFont(font3)
+  love.graphics.print(self.text, self.x + 82, self.y)
+  love.graphics.setFont(font1)
 end
 
 function Button:checkButton ()
