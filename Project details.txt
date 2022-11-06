@@ -1,0 +1,33 @@
+## Inspiration
+The game MiniMetro and it's easy going play style were a great source of inspiration.
+
+## What it does
+The player uses their mouse to find the best possible path while having a limited number of tracks.
+
+## How we built it
+- We used a framework called **Love2D** and the scripting language, **Lua** to code everything. 
+- Our sprites were drawn in **Libresprite** which is an open-source drawing software.
+- The music was acquired from the Creative Commons at **FreeMusicArchives.com**
+- The cloud background was from the **CC0 backgrounds pack by Stealthix **on itch.io.
+
+## Challenges we ran into
+- Everything was done without a Graphical User Interface and that made minor changes difficult
+- Difficulty building the rail drawing system from the ground up and having the images be reactive to their position relative to other rails.
+- Learning how to use the framework.
+- Very difficult game logic
+- Inadequate sleep
+- Problem with making sure the graphics all fit together aesthetically.
+
+## Accomplishments that we're proud of
+- Building a mostly responsive rail track system!
+- Creating multiple levels
+- Not using a game engine.
+
+## What we learned
+- Frameworks are great but not good for collaborating code and ideas with a team
+- You cannot avoid sleep. It will come for you.
+
+## What's next for Train Lines
+- Adding more than two stations for more complex puzzles.
+- Adding a timer to increase challenge.
+- Better graphics.
